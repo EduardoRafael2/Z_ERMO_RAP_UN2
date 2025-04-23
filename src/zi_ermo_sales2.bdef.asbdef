@@ -1,0 +1,20 @@
+unmanaged implementation in class zcl_i_ermo_sales2 unique;
+strict ( 2 );
+
+define behavior for ZI_ERMO_SALES2 alias Sales
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Orderid;
+
+  mapping for ZTERMO_SALES_UN2 control zsermo_sales_un2
+  {
+   Orderid = orderid;
+   Customer = customer;
+   Company = company;
+   Vendor = vendor;
+  }
+}
